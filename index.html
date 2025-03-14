@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" />
+    <title>May 18th National Cemetery</title>
+    <meta name="description" content="A short and engaging description of your page content." />
+
+    <meta property="og:title" content="Your Page Title" />
+    <meta property="og:description" content="A short and engaging description of your page content." />
+    <meta property="og:image" content="https://example.com/image.jpg" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.css" />
+    <link rel="stylesheet" href="index.css" />
+
+</head>
+
+</html>
+<header>
+</header>
+
+<body>
+    <!-- Parallax Background Image -->
+    <div data-scroll data-scroll-speed="-1" class="fullscreen-bg translate-y-[-8rem]"></div>
+
+
+    <!-- this is the title image. -->
+    <div class="flex relative items-center justify-center translate-y-[9rem] p-[11vh]  z-1">
+        <img src="assets/Title.png" alt="First title image">
+    </div>
+
+    <!-- These are the dates and page numbers that are currently placed as aesthetic elements. -->
+    <div>
+        <div class="date py-[0.8rem] px-[0.7rem] translate-y-[-2.1rem]">
+            <span>【</span> <span>1</span> <span>】</span>
+        </div>
+        <div class="date py-[0.5rem] px-[0.7rem] translate-y-[-4.1rem] text-end">
+            <span id="year"></span> <span>年</span>
+            <span id="month"></span><span>月</span>
+            <span id="day"></span><span>日</span>
+
+            <script>
+                function updateDate() {
+                    const today = new Date();
+                    document.getElementById("year").textContent = today.getFullYear(); // Year
+                    document.getElementById("month").textContent = today.getMonth() + 1; // Month (Months are 0-indexed)
+                    document.getElementById("day").textContent = today.getDate(); // Day
+                }
+
+                // Run function when page loads
+                updateDate();
+
+            </script>
+        </div>
+
+    </div>
+
+
+    <!-- this is the introductory paragraph for the wikipedia. it is not inside the locomotively scrolling container -->
+    <div class="main z-0 ">
+        <p class="p">The May 18th National Cemetery (Korean: 국립5·18민주묘지; Hanja: 國立五·一八民主墓地) is a memorial cemetery
+            located in Mangwol-dong, Buk-gu, Gwangju, South Korea.[1] Established in 1997, it serves as the final
+            resting place for victims of the Gwangju Democratization Movement, also known as the Gwangju Uprising, that
+            occurred in May 1980.[2] The cemetery stands as a significant historical site commemorating South Korea's
+            struggle for democracy and human rights. </br>
+        </p>
+
+        <p class="pb-[5rem]"></p>
+    </div>
+
+    <!-- this is the locomotively scrolling container -->
+    <div data-scroll data-scroll-speed="3" class="main z-10 upward-shadow align-center w-[102%] -translate-x-[1.5%]">
+        <div class="img-wrapper rounded-sm overflow-x-scroll" style="white-space: nowrap;">
+            <img src="/images/blue-518.png" alt="May 18th National Cemetery" class="inline-block">
+            <img src="/images/blue-tank.png" alt="May 18th National Cemetery" class="inline-block">
+            <img src="/images/blue-jail.png" alt="May 18th National Cemetery" class="inline-block">
+            <img src="/images/blue-streets.png" alt="May 18th National Cemetery" class="inline-block">
+        </div>
+        <h2 class="text-center translate-y-[-1.6em] text-2xl">What is the Gwangju Democratization Movement?</h2>
+        <!-- Data Table -->
+        <div class="min-w-full mx-0 mb-8 overflow-hidden translate-y-[-3em] table">
+
+            <div class="border-b min-w-full">
+            </div>
+
+            <!-- Time Period -->
+            <div class="border-b min-w-full">
+                <button class="w-full px-4 py-3 flex justify-between">
+                    <h3 class="font-medium text-right w-full">Time Period</h3>
+                    <p class="-indent-100">
+                        1980 May 18th - May 27th (44 years ago)
+                    </p>
+                </button>
+            </div>
+
+            <!-- Location -->
+            <div class="border-b min-w-full">
+                <button class="w-full px-4 py-3 flex justify-between">
+                    <h3 class="font-medium w-md text-right">Location</h3>
+                    <p class="">
+                        Jeollanam-do Gwangju City and nearby areas
+                    </p>
+                    </br>
+                </button>
+            </div>
+
+            <!-- Cause -->
+            <div class="border-b">
+                <button class="w-full px-4 py-3 flex justify-between">
+                    <h3 class="font-medium text-left">Cause</h3>
+                    <p class="indent-38">
+                        Civilian resistance against <strong>The New Military Department (新軍部)</strong>,
+                        especially regarding the <strong>December 12 Coup d'état</strong> and the <strong>May 17 Civil
+                            War</strong>.
+                    </p>
+                </button>
+            </div>
+
+            <!-- Belligerents -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center  transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('belligerents-section')">
+                        <h3 class="font-medium text-left">Belligerents</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="belligerents-section-icon"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="belligerents-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+
+                                <ul class="list-disc pl-5 gov">
+                                    <li>New military government</li>
+                                    <li>Ministry of National Defense (Martial Law Command)</li>
+                                    <li>Ministry of Interior Security Headquarters</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="civ">
+                                    <li>Civilian Militia</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commanders and Leaders -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center  transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('leaders-section')">
+                        <h3 class="font-medium text-left">Commanders and Leaders</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="leaders-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="leaders-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <ul class="list-disc pl-5 gov">
+                                    <li>Minister of National Defense Youngbok Joo</li>
+                                    <li>Chief of Staff of the Army and Martial Law Command Lee Hee-seong</li>
+                                    <li>Lieutenant General, Deputy Chief of Staff of the Army</li>
+                                    <li>2nd Army Commander Lieutenant General Jiniongchae</li>
+                                    <li>Commander of the Armed Forces Security Command</li>
+                                    <li>Capital Guard Commander Roh Tae-woo</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="list-disc pl-5 civ">
+                                    <li>Kim Jong-bae, Chairman</li>
+                                    <li>Heo Gyu-jeong, Vice Chairman</li>
+                                    <li>Jeong Sang-yong, Vice Chairman of Foreign Affairs</li>
+                                    <li>Yoon Sang-won, Spokesperson</li>
+                                    <li>Park Nam-seon, Situation Chief</li>
+                                    <li>Kim Young-cheol, Planning Director</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Units Involved -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('units-section')">
+                        <h3 class="font-medium text-left">Units Involved</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="units-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="units-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <ul class="list-disc pl-5 gov">
+                                    <li>Martial Law Headquarters</li>
+                                    <li>3rd Airborne Special Forces Brigade</li>
+                                    <li>7th Airborne Special Forces Brigade</li>
+                                    <li>11th Airborne Special Forces Brigade</li>
+                                    <li>20th Infantry Division</li>
+                                    <li>31st Infantry Division</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="civ">
+                                    <li>730,000 citizens of Gwangju</li>
+                                    <li>200,000 to 300,000 demonstrators</li>
+                                    <li>At least 340 militia members</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Casualties -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center  transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('casualties-section')">
+                        <h3 class="font-medium text-left">Casualties and Losses</h3>
+                        <svg class="w-5 h-5 transform transition-transform duration-200" id="casualties-section-icon"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="casualties-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <ul class="gov">
+                                    <li>3 soldiers and 4 policemen killed</li>
+                                    <li>115 soldiers and 138 policemen injured</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="civ">
+                                    <li>66 civilians killed</li>
+                                    <li>179 people missing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outcome -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('outcome-section')">
+                        <h3 class="font-medium text-left">Outcome</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="outcome-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="outcome-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <p>
+                            Martial Law Forces occupied Gwangju and the civilian militia collapsed As a result,
+                            civilian democratization resistance forces got crushed.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Influence -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('influence-section')">
+                        <h3 class="font-medium text-left">Influence on Following Korean History</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="influence-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="influence-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <p>
+                            Transfer of power to Chun Doo-hwan, inauguration of the 11th President, new military
+                            dictatorship begins, motivated the June Uprising.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Script for smooth collapse/expand functionality -->
+            <script>
+                function toggleSection(sectionId) {
+                    const section = document.getElementById(sectionId);
+                    const icon = document.getElementById(sectionId + '-icon');
+
+                    // Toggle visibility with smooth animation
+                    if (section.classList.contains('hidden')) {
+                        // Show the section
+                        section.classList.remove('hidden');
+                        section.style.maxHeight = '0';
+                        setTimeout(() => {
+                            section.style.maxHeight = section.scrollHeight + 'px';
+                        }, 100);
+                        icon.classList.add('rotate-90');
+                    } else {
+                        // Hide the section
+                        section.style.maxHeight = section.scrollHeight + 'px';
+                        setTimeout(() => {
+                            section.style.maxHeight = '0';
+                        }, 100);
+                        setTimeout(() => {
+                            section.classList.add('hidden');
+                            icon.classList.remove('rotate-90');
+                        }, 300);
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- This is text again -->
+
+        <div>
+            <p class="mr-[21rem] hyphens-auto">
+                The Gwangju Democratization Movement was a pivotal event in South Korea's political history that
+                unfolded between May 18 and May 27, 1980.[5] The movement emerged in response to the extension of
+                military rule following the assassination of President Park Chung-hee in October 1979.
+            </p>
+            <br>
+            <h5>Political Context</h5>
+            <p class="p">
+                Following Park's assassination, a brief period of political liberalization known as the "Seoul Spring"
+                ensued under Acting President Choi Kyu-hah.[6] However, this period was abruptly terminated when General
+                Chun Doo-hwan seized control through a military coup on December 12, 1979.[7] To consolidate power, Chun
+                extended martial law throughout the entire country on May 17, 1980, closed universities, banned
+                political activities, and imposed further restrictions on press freedoms.[8]
+            </p>
+            <h5>Outbreak of Protests</h5>
+            <p class="p">
+                The initial protests began on May 18, 1980, when students from Chonnam National University demonstrated
+                against the martial law decree.[9] Government forces, specifically paratroopers, responded with
+                excessive force against the peaceful demonstrations.[10] As reports of violence spread, thousands of
+                Gwangju citizens joined the protests, demanding democratic reforms and an end to military rule.[11]
+            </p>
+            <h5>Escalation and Civilian Response</h5>
+            <p class="p">
+                Between May 21 and May 27, Gwangju became effectively autonomous as protesters, now organized as the
+                "Gwangju Citizens' Army," took control of the city.[12] During this brief period, citizens established a
+                form of self-governance, managing community defenses and organizing food and medical supplies for the
+                population.[13]
+            </p>
+            <h5>Military Suppression</h5>
+            <p class="p">
+                On May 27, 1980, the South Korean military launched "Operation Splendid Holiday," a full-scale offensive
+                to reclaim control of Gwangju.[14] The operation involved thousands of troops who entered the city with
+                orders to suppress the uprising at all costs. The resulting confrontation between military forces and
+                largely unarmed civilians led to significant casualties.[15]
+            </p>
+            <p class="pb-[7rem]"> </p>
+        </div>
+
+    </div>
+    <!-- This is the end of the locomotively scrolling 518 info card -->
+
+    <div class="main absolute mt-[-30rem] translate-y-[-70rem] z-0">
+        <h4 class="ml-[-5.5rem] z-350 translate-y-[-1rem]">The Cemetery</h4>
+        <br>
+        <br>
+        <h5 class="ml-[-1rem]">Location and Establishment</h5>
+        <p class="p">
+            Situated on the northern outskirts of Gwangju, the cemetery covers approximately 49 acres (200,000 square
+            meters).[3] Prior to its designation as a national cemetery, the site was known as the Mangwol-dong
+            Cemetery, where victims of the uprising were initially buried. In 1997, following the passage of the
+            "Special Law on the May 18 Democratic Uprising," the cemetery was officially designated as a national
+            cemetery, elevating its status to that of other national cemeteries honoring those who died in service to
+            the country.[4]
+            </br>
+        </p>
+
+        <h5 class="ml-[-3.3rem] text-left">Layout and Features</h5>
+        <p class="p">
+            The May 18th National Cemetery is designed with symbolic elements that commemorate the democratic struggle.
+            The main entrance features a memorial gate inscribed with calligraphy honoring the spirit of the
+            movement.[16] The cemetery is divided into several sections:
+        </p>
+        <ol class="">
+            <li>Memorial Plaza - A central gathering space for commemorative events[17]</li>
+            <li>Grave Sites - Where the victims of the uprising are interred[18]</li>
+            <li>Memorial Tower - Standing at 40 meters tall, representing the enduring spirit of democracy[19]</li>
+            <li>Exhibition Hall - Housing artifacts, photographs, and testimonies related to the uprising[20]</li>
+            <li>Memorial Hall - Containing records of the deceased and their contributions to democracy[21]</li>
+        </ol>
+        <br>
+        <h5 class="ml-[-5.5rem] mt-[-0.3rem]">Burial Records</h5>
+        <p class="p">
+            The cemetery contains the graves of approximately 165 individuals who were killed during the Gwangju
+            Democratization Movement.[22] Additionally, there are memorial tablets for those whose bodies were never
+            recovered or identified.[23] As more victims have been officially recognized through subsequent government
+            investigations, the number of burials has increased over time.[24]
+        </p>
+
+        <p class="pb-[5rem]"></p>
+
+        <!-- Data Table #2-->
+        <div class="min-w-full mx-0 mb-8 overflow-hidden table">
+            <div class="border-b min-w-full">
+            </div>
+            <!-- National Recognition -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('recognition-section')">
+                        <h3 class="font-medium text-left">National Recognition</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="recognition-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="recognition-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p civ">
+                            The establishment of the May 18th National Cemetery represented a significant shift in South
+                            Korea's official narrative regarding the Gwangju Uprising. Initially, the military
+                            government under Chun Doo-hwan characterized the events as a "rebellion instigated by
+                            communist elements."[25] However, following democratization in the late 1980s and early
+                            1990s, the South Korean government formally recognized the movement as a legitimate struggle
+                            for democracy.[26]
+                            The passing of the "Special Law on the May 18 Democratic Uprising" in 1995 facilitated
+                            investigations into human rights violations and promoted reconciliation by recognizing the
+                            victims as national martyrs.[27] In 2000, President Kim Dae-jung, himself a former democracy
+                            activist who had been persecuted by previous military regimes, officially apologized for the
+                            state's role in the suppression of the uprising.[28]
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Commemoration and Education -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('education-section')">
+                        <h3 class="font-medium text-left">Commemoration and Education</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="education-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="education-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p civ">
+                            May 18 has been designated as an official day of commemoration in South Korea.[29] Annual
+                            ceremonies at the cemetery draw thousands of visitors, including government officials,
+                            citizens, and international observers.[30] The site has been integrated into South Korea's
+                            national education curriculum to ensure future generations understand this critical period
+                            in the nation's democratic development.[31]
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Recognition -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('international-section')">
+                        <h3 class="font-medium text-left">International Recognition</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="international-section-icon"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="international-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p civ">
+                            The Gwangju Democratization Movement and its associated sites, including the May 18th
+                            National Cemetery, have gained international recognition for their significance in the
+                            global struggle for human rights and democracy. UNESCO included records of the Gwangju
+                            Uprising in the Memory of the World Register in 2011, acknowledging its universal value as
+                            documentation of a pivotal moment in the advancement of human rights.[32]
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cultural Impact -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('cultural-section')">
+                        <h3 class="font-medium text-left">Cultural Impact</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="cultural-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="cultural-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p civ">
+                            The events commemorated at the cemetery have inspired numerous works of art, literature, and
+                            film. Notable works include Han Kang's novel "Human Acts" and the film "A Taxi Driver,"
+                            which depicts the experiences of a Seoul taxi driver who unwittingly becomes involved in the
+                            uprising while transporting a German journalist to Gwangju.[33][34] </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tourism and Visitation -->
+            <div class="border-b">
+                <div class="">
+                    <button
+                        class="w-full px-4 py-3 flex justify-between items-center transition-colors duration-150 focus:outline-none"
+                        onclick="toggleSection('tourism-section')">
+                        <h3 class="font-medium text-left">Tourism and Visitation</h3>
+                        <svg class="w-5 h-5 transition-transform duration-200" id="tourism-section-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 12 h12 M12 12 v6.2 M7.8 16.2 l4.2 -4.2 M16.2 16.2 l-4.2 -4.2">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="tourism-section"
+                        class="px-4 py-2 hidden overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p civ">
+                            The May 18th National Cemetery has become an important site for both domestic and
+                            international visitors seeking to understand South Korea's democratic transition. The
+                            adjacent May 18th Memorial Foundation operates guided tours and educational programs.[35]
+                            Annual visitor numbers have steadily increased, particularly around the anniversary
+                            date.[36]
+                    </div>
+                </div>
+            </div>
+            <!-- Script for smooth collapse/expand functionality -->
+            <script>
+                function toggleSection(sectionId) {
+                    const section = document.getElementById(sectionId);
+                    const icon = document.getElementById(sectionId + '-icon');
+
+                    // Toggle visibility with smooth animation
+                    if (section.classList.contains('hidden')) {
+                        // Show the section
+                        section.classList.remove('hidden');
+                        section.style.maxHeight = '0';
+                        setTimeout(() => {
+                            section.style.maxHeight = section.scrollHeight + 'px';
+                        }, 100);
+                        icon.classList.add('rotate-90');
+                    } else {
+                        // Hide the section
+                        section.style.maxHeight = section.scrollHeight + 'px';
+                        setTimeout(() => {
+                            section.style.maxHeight = '0';
+                        }, 100);
+                        setTimeout(() => {
+                            section.classList.add('hidden');
+                            icon.classList.remove('rotate-90');
+                        }, 300);
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="img-wrapper scale-[60%] left-0 rounded-sm overflow-x-scroll translate-x-[-8.1rem]"
+            style="white-space: nowrap;">
+            <img src="/images/blue-guns.png" alt="May 18th National Cemetery" class="inline-block">
+            <img src="/images/blue-jail.png" alt="May 18th National Cemetery" class="inline-block">
+            <img src="/images/blue-rubble.png" alt="May 18th National Cemetery" class="inline-block">
+            <img src="/images/blue-beating.png" alt="May 18th National Cemetery" class="inline-block">
+        </div>
+        <h2 class="text-left translate-x-[-7.1rem] translate-y-[-1.8em] text-5xl scale-[120%]">Conclusion</h2>
+        <div>
+            <p class="p">
+                The May 18th National Cemetery stands as a profound testament to South Korea's democratic journey. As
+                both a burial ground for those who sacrificed their lives and a living memorial to the principles they
+                defended, the cemetery continues to serve an important educational and commemorative function in
+                contemporary Korean society. The transformation of the site from a place of mourning to a recognized
+                national monument reflects broader shifts in South Korea's political landscape and its reckoning with
+                historical trauma.
+            </p>
+            <p class="p">
+                Visitors to the May 18th National Cemetery not only pay respects to those who fell during the Gwangju
+                Democratization Movement but also engage with the complex historical forces that shaped modern South
+                Korea. Through its carefully designed spaces, educational facilities, and regular commemorative events,
+                the cemetery offers invaluable insights into the human cost of democratic progress and the resilience of
+                civil society in the face of authoritarianism.
+            </p>
+            <p class="p">
+                As South Korea continues to evolve as a democratic nation, the May 18th National Cemetery remains a
+                vital site for understanding the foundations upon which contemporary Korean democracy was built. Those
+                seeking to comprehend the full scope of East Asian democratization movements and their global
+                significance will find this historical site an essential point of reference in their explorations.
+            </p>
+            <!-- See Also -->
+            <p class="p semibold underline">See Also</p>
+            <div class="p list-disc pl-5 civ grid">
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Gwangju_Uprising">Gwangju Uprising</a></li>
+                    <li><a href="https://guides.loc.gov/south-korean-democratization-movement">Democratization movement
+                            in South Korea</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Chun_Doo-hwan">Chun Doo-hwan</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/June_Democratic_Struggle">South Korean democracy
+                            movement</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- Visually hidden but semantically present footnotes -->
+    <footer class="visually-hidden">
+        <h2>Notes</h2>
+        <ol>
+            <li id="footnote-1">Ministry of Patriots and Veterans Affairs, "National Cemeteries of South Korea,"
+                Official Publication, 2015, p. 45.</li>
+            <li id="footnote-2">"Special Law on the May 18 Democratic Uprising," Law No. 5029, enacted December 21,
+                1995, Republic of Korea.</li>
+            <li id="footnote-3">Jung, Keun-Sik, "Transitional Justice and Historical Memory: Comparing South Korea and
+                Taiwan," Journal of Contemporary East Asian Studies, Vol. 34 (2015), pp. 118-142.</li>
+        </ol>
+    </footer>
+
+    <!-- Modal structure -->
+    <div id="footnoteModal" class="footnote-modal">
+        <div class="footnote-modal-content">
+            <span class="footnote-close">&times;</span>
+            <h3>Citation</h3>
+            <div id="footnoteContent" class="footnote-content"></div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
+<!-- Locomotive Scroll -->
+<script>
+    (function () {
+        const locomotiveScroll = new LocomotiveScroll(
+            {
+                el: document.querySelector("[data-scroll-container]"),
+                smooth: true,
+                getDirection: true
+            }
+        );
+    })();
+</script>
+
+<!-- JavaScript for modal footnotes functionality -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const modal = document.getElementById('footnoteModal');
+        const modalContent = document.getElementById('footnoteContent');
+        const closeBtn = document.getElementsByClassName('footnote-close')[0];
+
+        // Add click event to all footnote references
+        document.querySelectorAll('.footnote-ref').forEach(ref => {
+            ref.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Get the citation content from data attribute
+                const citationContent = this.getAttribute('data-content');
+
+                // Set modal content as HTML instead of text
+                modalContent.innerHTML = citationContent;
+
+                // Display modal
+                modal.style.display = 'block';
+            });
+        });
+
+        // Close modal when clicking the × button
+        closeBtn.onclick = function () {
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal with escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</html>
