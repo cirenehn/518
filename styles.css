@@ -559,7 +559,7 @@ footer ol {
   right: 0;
   width: 100vw; /* Full viewport width */
   height: 320vh; /* Zoomed in slightly so bottom stays filled */
-  background-image: url("images/building.png");
+  background-image: url("/images/building.png");
   background-size: 120% auto; /* Scale up slightly to prevent white gaps */
   background-position: top center; /* Lock image to top center */
   background-repeat: no-repeat;
