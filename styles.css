@@ -391,9 +391,9 @@ body {
 
 footer {
   margin-top: 50px;
-  border-top: 1px solid #efff10;
+  /* border-top: 1px solid #efff10; */
   font-size: 0.8em;
-  color: #efff10;
+  color: blue;
 }
 
 footer ol {
